@@ -17,27 +17,6 @@ Install via Composer — no copy/paste required:
 composer require mostafizurmaruf/bingo-crud
 ```
 
-The service provider is **auto-discovered**, so the command is available
-immediately. Confirm it is visible:
-
-```bash
-php artisan list | grep make:crud
-```
-
-That's it. The package ships its own stub templates, so nothing else needs to
-be registered.
-
-### (Optional) Customising the templates
-
-To tweak the generated output, publish the stubs into your app and edit them:
-
-```bash
-php artisan vendor:publish --tag=crud-stubs
-```
-
-This copies the templates to `stubs/crud/` in your project root. When present,
-the command uses those instead of the bundled ones.
-
 ## 3. Usage
 
 ```bash
