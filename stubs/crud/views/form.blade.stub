@@ -1,0 +1,2 @@
+{{-- Shared form fields for {{ TITLE }} create/edit screens. --}}
+{{ FORM_FIELDS }}

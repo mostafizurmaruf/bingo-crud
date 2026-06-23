@@ -1,0 +1,25 @@
+@extends('layouts.app')
+
+@section('title', 'Edit {{ TITLE }}')
+
+@section('content')
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="h3 mb-0">Edit {{ TITLE }}</h1>
+        <a href="{{ route('{{ ROUTE }}.index') }}" class="btn btn-outline-secondary">Back</a>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form action="{{ route('{{ ROUTE }}.update', ${{ MODEL_VARIABLE }}) }}" method="POST">
+                @csrf
+                @method('PUT')
+                @include('{{ VIEW_FOLDER }}._form')
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">Update {{ TITLE }}</button>
+                    <a href="{{ route('{{ ROUTE }}.index') }}" class="btn btn-link">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+@endsection

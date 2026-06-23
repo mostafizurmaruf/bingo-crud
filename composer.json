@@ -1,0 +1,33 @@
+{
+    "name": "mostafizurmaruf/bingo-crud",
+    "description": "Scaffold a complete Laravel CRUD stack (model, migration, form request, resource controller, Blade views and route) from a single schema string via `php artisan make:crud`.",
+    "keywords": ["laravel", "crud", "generator", "scaffold", "artisan", "make"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mostafizurmaruf",
+            "email": "marufkhan1506@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/console": "^11.0|^12.0",
+        "illuminate/filesystem": "^11.0|^12.0",
+        "illuminate/support": "^11.0|^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mostafizurmaruf\\BingoCrud\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mostafizurmaruf\\BingoCrud\\CrudServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

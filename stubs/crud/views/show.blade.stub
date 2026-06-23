@@ -1,0 +1,26 @@
+@extends('layouts.app')
+
+@section('title', '{{ TITLE }} #{{ ${{ MODEL_VARIABLE }}->getKey() }}')
+
+@section('content')
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="h3 mb-0">{{ TITLE }} Details</h1>
+        <div>
+            <a href="{{ route('{{ ROUTE }}.edit', ${{ MODEL_VARIABLE }}) }}" class="btn btn-primary">Edit</a>
+            <a href="{{ route('{{ ROUTE }}.index') }}" class="btn btn-outline-secondary">Back</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <dl class="row mb-0">
+{{ SHOW_ROWS }}
+                <dt class="col-sm-3">Created at</dt>
+                <dd class="col-sm-9">{{ ${{ MODEL_VARIABLE }}->created_at }}</dd>
+
+                <dt class="col-sm-3">Updated at</dt>
+                <dd class="col-sm-9">{{ ${{ MODEL_VARIABLE }}->updated_at }}</dd>
+            </dl>
+        </div>
+    </div>
+@endsection

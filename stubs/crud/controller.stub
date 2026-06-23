@@ -1,0 +1,85 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\{{ REQUEST }};
+use App\Models\{{ MODEL }};
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+
+class {{ CONTROLLER }} extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index(): View
+    {
+        ${{ PLURAL_VARIABLE }} = {{ MODEL }}::query()->latest()->paginate(15);
+
+        return view('{{ VIEW_FOLDER }}.index', compact('{{ PLURAL_VARIABLE }}'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create(): View
+    {
+        ${{ MODEL_VARIABLE }} = new {{ MODEL }}();
+
+        return view('{{ VIEW_FOLDER }}.create', compact('{{ MODEL_VARIABLE }}'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store({{ REQUEST }} $request): RedirectResponse
+    {
+        {{ MODEL }}::create($request->validated());
+
+        return redirect()
+            ->route('{{ ROUTE }}.index')
+            ->with('status', '{{ TITLE }} created successfully.');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show({{ MODEL }} ${{ MODEL_VARIABLE }}): View
+    {
+        return view('{{ VIEW_FOLDER }}.show', compact('{{ MODEL_VARIABLE }}'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit({{ MODEL }} ${{ MODEL_VARIABLE }}): View
+    {
+        return view('{{ VIEW_FOLDER }}.edit', compact('{{ MODEL_VARIABLE }}'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update({{ REQUEST }} $request, {{ MODEL }} ${{ MODEL_VARIABLE }}): RedirectResponse
+    {
+        ${{ MODEL_VARIABLE }}->update($request->validated());
+
+        return redirect()
+            ->route('{{ ROUTE }}.index')
+            ->with('status', '{{ TITLE }} updated successfully.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy({{ MODEL }} ${{ MODEL_VARIABLE }}): RedirectResponse
+    {
+        ${{ MODEL_VARIABLE }}->delete();
+
+        return redirect()
+            ->route('{{ ROUTE }}.index')
+            ->with('status', '{{ TITLE }} deleted successfully.');
+    }
+}
